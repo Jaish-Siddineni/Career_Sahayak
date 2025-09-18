@@ -1,0 +1,77 @@
+
+
+I am a 3rd-year computer science (AI/ML) student from PES University
+
+AI/ML, data science, problem-solving, and creative design
+
+
+prompt = f"""
+        Act as a world-class Career Architect for students in India. Your goal is to provide a detailed, realistic, and highly actionable career plan based on their profile and interests.
+
+        User Profile: {user_profile}
+        User Interests: {user_interests}
+
+        Generate a JSON object containing a list of 2-3 suitable career paths. For each path, provide a concise summary and a detailed, point-wise roadmap. The roadmap should be broken down into logical steps. For each step, suggest specific, high-quality learning resources from YouTube, Coursera, and Udemy.
+
+        Please adhere strictly to the following JSON structure:
+        {{
+          "career_options": [
+            {{
+              "career_path": "Suggested Career Name",
+              "summary": "A brief summary of why this career fits the user's profile and its scope in India.",
+              "roadmap": [
+                {{
+                  "step": "Step 1: Foundational Skills",
+                  "details": [
+                    "Concise, actionable point 1.",
+                    "Concise, actionable point 2.",
+                    "Concise, actionable point 3."
+                  ],
+                  "resources": {{
+                    "youtube": ["Name of a specific YouTube playlist or channel, e.g., 'CS50's Introduction to Computer Science'"],
+                    "coursera": ["Name of a specific course or specialization, e.g., 'Google Data Analytics Professional Certificate'"],
+                    "udemy": ["Name of a specific course, e.g., 'The Complete Python Bootcamp From Zero to Hero'"]
+                  }}
+                }},
+                {{
+                  "step": "Step 2: Core Concepts",
+                  "details": [
+                    "Actionable point about core concepts.",
+                    "Another actionable point."
+                  ],
+                   "resources": {{
+                    "youtube": ["Relevant YouTube resource"],
+                    "coursera": ["Relevant Coursera resource"],
+                    "udemy": ["Relevant Udemy resource"]
+                  }}
+                }},
+                {{
+                  "step": "Step 3: Specialization & Projects",
+                   "details": [
+                    "Suggestions for advanced topics.",
+                    "Ideas for building a strong project portfolio."
+                  ],
+                   "resources": {{
+                    "youtube": ["Advanced topic playlists"],
+                    "coursera": ["Specialized courses or projects"],
+                    "udemy": ["Advanced or project-based courses"]
+                  }}
+                }},
+                {{
+                  "step": "Step 4: Job Preparation & Networking",
+                  "details": [
+                    "Tips for resume building tailored to this career.",
+                    "How to prepare for interviews in this field.",
+                    "Networking strategies for the Indian job market."
+                  ],
+                   "resources": {{
+                    "youtube": ["Interview prep channels or series"],
+                    "coursera": ["Courses on soft skills or interview prep"],
+                    "udemy": ["Resume writing or interview skills courses"]
+                  }}
+                }}
+              ]
+            }}
+          ]
+        }}
+        """

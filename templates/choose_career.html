@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <div id="loader" class="hidden text-center p-4">
+        <p class="text-lg font-semibold">⏳ Loading, this may take a few seconds...</p>
+        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900 mx-auto mt-2"></div>
+    </div>
+    <p class="text-xl mb-4">Based on your profile and interests, we suggest the following career paths:</p>
+
+    <form method="POST">
+        <ul class="list-disc list-inside mb-4 space-y-2">
+            {% for career, description in careers.items() %}
+            <li>
+                <div>
+                    <button type="submit" name="career" value="{{ career }}"
+                        class="bg-gray-900 text-white py-1 px-3 rounded-lg hover:bg-blue-600">
+                        {{ career }}
+                    </button>
+                    <p class="mt-1 text-gray-700">{{ description }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </form>
+    <p class="text-xl mb-4">Please select the career you wish to explore</p>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const loader = document.getElementById("loader");
+        const results = document.getElementById("results");
+
+        if (form) {
+            form.addEventListener("submit", function () {
+                loader.classList.remove("hidden");
+                results.classList.add("hidden");
+            });
+        }
+    });
+</script>
+{% endblock %}

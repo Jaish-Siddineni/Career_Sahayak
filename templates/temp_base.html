@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Counselor</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles1.css') }}">
+</head>
+
+<body>
+    <div class="bg-gray-100 min-h-screen p-4 flex items-center justify-center">
+        {% block content %}{% endblock %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <script>
+            Swal.fire({
+                icon: "{{ 'success' if category == 'success' else 'error' if category == 'error' else 'info' }}",
+                title: "{{ message }}",
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>

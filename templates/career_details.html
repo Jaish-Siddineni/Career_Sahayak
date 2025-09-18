@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="font-bold text-3xl mb-4">Your Personalized Career Path</h2>
+<p><strong>Career Path:</strong> {{ career_path }}</p>
+<p class="mb-4"><strong>Summary:</strong> {{ summary }}</p>
+
+<h3 class="font-bold text-3xl mb-4">Actionable Roadmap:</h3>
+<ol>
+    {% for step in roadmap %}
+    <li><strong>{{ step.step }}</strong>: {{ step.details }}</li>
+    {% endfor %}
+</ol>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Counselor</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles1.css') }}">
+</head>
+
+<body>
+    <div class="bg-gray-900 p-4 text-white flex justify-between items-center mb-4">
+        <div class="flex items-center space-x-4">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="h-10 mr-4">
+            <button class="bg-gray-100 py-1 px-3 rounded-lg text-gray-900 font-bold"><a
+                    href="{{ url_for('get_started') }}">Home</a></button> |
+            <!-- <button class="bg-gray-100 py-1 px-3 rounded-lg text-gray-900 font-bold"><a
+                    href="{{ url_for('register') }}">Register</a></button> |
+            <button class="bg-gray-100 py-1 px-3 rounded-lg text-gray-900 font-bold"><a
+                    href="{{ url_for('login') }}">Login</a></button> -->
+        </div>
+        <div class="flex items-center">
+            <button class="border-2 border-black hover:border-blue-500">
+                <a href="{{ url_for('profile') }}">
+                    <img src="{{ url_for('static', filename='profile.png') }}" alt="User Icon" class="h-10">
+                </a>
+            </button>
+        </div>
+    </div>
+    <div class="bg-gray-100 min-h-screen p-4">
+        {% block content %}{% endblock %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <script>
+            Swal.fire({
+                icon: "{{ 'success' if category == 'success' else 'error' if category == 'error' else 'info' }}",
+                title: "{{ message }}",
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+    <div class="bg-gray-900 text-white text-center p-4 mt-4">
+        &copy; 2024 Career Counselor. All rights reserved.
+    </div>
+
+</body>
+
+</html>

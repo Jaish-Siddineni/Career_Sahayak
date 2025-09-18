@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl mb-4">Welcome, {{ session.full_name }}</h2>
+<form method="POST">
+    <label for="profile" class="block text-gray-700 font-semibold mb-2">Your Profile</label>
+    <textarea id="profile" name="profile" rows="3"
+        class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500 transition-colors mb-4"
+        placeholder="Tell us about yourself..." required></textarea><br>
+    <label for="interests" class="block text-gray-700 font-semibold mb-2">Your Interests</label>
+    <textarea id="interests" name="interests" rows="3"
+        class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500 transition-colors mb-4"
+        placeholder="What are you passionate about?" required></textarea><br>
+    <button class="bg-gray-900 py-1 px-3 rounded-lg text-white font-bold hover:bg-blue-600" type="submit">
+        Generate Roadmap</button>
+</form>
+{% endblock %}

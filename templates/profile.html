@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl mb-4">Your Profile</h2>
+<div>
+    <p class="mb-2"><strong>Full Name:</strong> {{ user.full_name }}</p>
+    <p class="mb-4"><strong>Email:</strong> {{ user.email }}</p>
+    <button class="bg-gray-900 py-1 px-3 rounded-lg text-white font-bold hover:bg-blue-600">
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </button>
+</div>
+{% endblock %}

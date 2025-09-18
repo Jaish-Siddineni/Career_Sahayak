@@ -1,0 +1,22 @@
+{% extends "temp_base.html" %}
+{% block content %}
+<div class="transform -translate-y-20">
+    <h2 class="text-3xl font-bold">Sign In</h2>
+    <form class="py-4" method="POST">
+        <div>
+            <label for="email" class="block font-semibold mb-2">Email : </label>
+            <input
+                class="rounded-lg border-2 border-gray-500 focus:outline-none focus:border-blue-500 transition-colors mb-4"
+                type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="password" class="block font-semibold mb-2">Password :</label>
+            <input
+                class="rounded-lg border-2 border-gray-500 focus:outline-none focus:border-blue-500 transition-colors mb-4"
+                type="password" name="password" id="password">
+        </div>
+        <button type="submit"
+            class="bg-gray-900 py-1 px-3 rounded-lg text-white font-bold hover:bg-blue-600">SIGNIN</button>
+    </form>
+</div>
+{% endblock %}
